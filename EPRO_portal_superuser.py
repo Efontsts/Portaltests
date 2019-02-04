@@ -53,32 +53,36 @@ class EPROPortalSuperuser(unittest.TestCase):
         time.sleep(3.5)
 #       ...............................................
 #       driver.find_element_by_name("continue").click()
-#       driver.find_element_by_xpath("//login-form/div/div/div[2]/div/form/div[3]/div/button").click() #works
-#       driver.find_element_by_css_selector("body > login-app > div > login-form > div > div > div.widget.login-window > div > form > div:nth-child(3) > div > button").click() #don't works
-        driver.find_element_by_css_selector("login-form > div > div > div.widget.login-window > div > form > div:nth-child(3) > div > button.btn.btn-default.btn-lg").click()   #works
-        time.sleep(3.5)
+        driver.find_element_by_xpath("//login-form/div/div/div[2]/div/form/div[3]/div/button").click() #works
+#       driver.find_element_by_css_selector("login-form > div > div > div.widget.login-window > div > form > div:nth-child(3) > div > button.btn.btn-default.btn-lg").click()   #works
+        time.sleep(7.5)
         driver.find_element_by_link_text("User").click()
-        time.sleep(1.5)
+        time.sleep(2.5)
         driver.find_element_by_link_text("Numbers").click()
         time.sleep(2.5)
         driver.find_element_by_link_text("Mobile Numbers").click()        
         time.sleep(2.5)
         driver.find_element_by_link_text("Mobile Routings").click()        
         time.sleep(2.5)        
-        driver.find_element_by_link_text("Abbreviated dialling").click()
+        driver.find_element_by_link_text("Abbreviated dialling").click()     
         time.sleep(2.5)
         driver.find_element_by_link_text("Manage abbreviated numbers").click()
-        time.sleep(1.5)
+        time.sleep(2.5)
         driver.find_element_by_xpath("//input[@type='text']").clear()
-        driver.find_element_by_xpath("//input[@type='text']").send_keys("xxxxx")
-        driver.find_element_by_xpath("(//input[@type='text'])[2]").send_keys("xxxxx")
-        driver.find_element_by_xpath("(//input[@type='text'])").clear()
-        driver.find_element_by_xpath("(//input[@type='text'])[2]").clear()
         time.sleep(1.5)
+        driver.find_element_by_xpath("//input[@type='text']").send_keys("xxxxx")
+        time.sleep(0.5)
+        driver.find_element_by_xpath("(//input[@type='text'])[2]").send_keys("xxxxx")
+        time.sleep(0.5)
+        driver.find_element_by_xpath("(//input[@type='text'])").clear()
+        time.sleep(0.5)
+        driver.find_element_by_xpath("(//input[@type='text'])[2]").clear()
+        time.sleep(0.5)
 #       driver.find_element_by_xpath("(//input[@type='text'])[3]").send_keys("xxxxxxx")     
         driver.find_element_by_xpath("//input[@type='text']").send_keys("2345")
+        time.sleep(0.5)
         driver.find_element_by_xpath("(//input[@type='text'])[2]").send_keys("2345")
-        time.sleep(1.5)
+        time.sleep(0.5)
 #       driver.find_element_by_xpath("//form[@class='form-horizontal submit ng-untouched ng-pristine ng-valid']/div[2]/button").click() #also works
         driver.find_element_by_css_selector("body > my-app > ng-component > div > div:nth-child(2) > div > tabs > ng-component > div > div > div > div:nth-child(5) > div > section > form > div.col-xs-4.text-right > button").click() #works
         time.sleep(1.5)
@@ -90,30 +94,30 @@ class EPROPortalSuperuser(unittest.TestCase):
 #       driver.find_element_by_css_selector("body > my-app > ng-component > div > div:nth-child(2) > div > tabs > ng-component > div > div > div:nth-child(2) > div > efon-table > section > ng-table > table > tbody > tr > td.nowrap.alignRight > a:nth-child(1) > span").click() #works
         time.sleep(1.5)
         driver.find_element_by_xpath("//body/my-app/ng-component/div/div[2]/div/tabs/ng-component/div/div/div[2]/div/efon-table/section/ng-table/table/tbody/tr/td[5]/a[1]/span").click()   #works
-        time.sleep(2.5)
+        time.sleep(1.5)
         driver.find_element_by_xpath("//body/my-app/modal-placeholder/ng-component/system-modal-template/div/div/div/div[3]/button[1]").click() #works
 #       driver.find_element_by_xpath("//confirmation-modal//button[text()='Yes']").click() # Alternative way simply get the button (or other objects) using the text property
         time.sleep(2.5)
         driver.find_element_by_link_text("Provisioning").click()
-        time.sleep(2.5)
+        time.sleep(1.5)
         driver.find_element_by_link_text("Hunt Groups").click()
         time.sleep(2.5)
-#       driver.find_element_by_link_text("End devices").click()
-#       time.sleep(2.5)
+        driver.find_element_by_link_text("End devices").click()
+        time.sleep(1.5)
         driver.find_element_by_link_text("Call forwarding").click()
-        time.sleep(2.5)
+        time.sleep(1.5)
         driver.find_element_by_link_text("Last calls").click()
-        time.sleep(2.5)
+        time.sleep(1.5)
         driver.find_element_by_link_text("Subscriptions").click()
-        time.sleep(2.5)
+        time.sleep(1.5)
         driver.find_element_by_link_text("Bills").click()
-        time.sleep(2.5)
+        time.sleep(1.5)
         driver.find_element_by_link_text("IVRs").click()
-        time.sleep(2.5)
+        time.sleep(1.5)
         driver.find_element_by_link_text("Call pick-ups").click()
         time.sleep(1.5)
-        driver.find_element_by_link_text("Organisation").click()
-        time.sleep(1.5)
+#       driver.find_element_by_link_text("Organisation").click()
+#       time.sleep(1.5)
         driver.find_element_by_link_text("Contact data").click()
         time.sleep(1.5)
 #       driver.find_element_by_xpath("//ul[@id='mainNavbar']/li[12]/a").click() #works
@@ -136,14 +140,9 @@ class EPROPortalSuperuser(unittest.TestCase):
         driver.find_element_by_name("email").clear()
         time.sleep(1.5)
         driver.find_element_by_name("email").send_keys("600040@e-fon.ch")
-        time.sleep(2.5)
-        driver.find_element_by_css_selector("contact-access-login > section > #loginNameForm > div.form-group > div.col-xs-12.text-right > a.btn.btn-primary.btn-lg").click()
-#       driver.find_element_by_xpath("//contact-access/div/div/contact-access-login/section[contains(@class,'form-section')]/form/div[2]/div/a").click() #works
         time.sleep(1.5)
-        driver.find_element_by_name("email").clear()
-        time.sleep(2.5)
-        driver.find_element_by_name("email").send_keys("600040@e-fon.ch")
-        time.sleep(2.5)
+#       driver.find_element_by_css_selector("contact-access-login > section > #loginNameForm > div.form-group > div.col-xs-12.text-right > a.btn.btn-primary.btn-lg").click() #works
+#       driver.find_element_by_xpath("//contact-access/div/div/contact-access-login/section[contains(@class,'form-section')]/form/div[2]/div/a").click() #works
         driver.find_element_by_link_text("Save").click()
 #       driver.find_element_by_css_selector("contact-access-login > section > #loginNameForm > div.form-group > div.col-xs-12.text-right > a.btn.btn-primary.btn-lg").click() #seems working but not saves
 #       driver.find_element_by_xpath("//contact-access/div/div/contact-access-login/section[contains(@class,'form-section')]/form/div[2]/div/a").click() #works
@@ -176,7 +175,7 @@ class EPROPortalSuperuser(unittest.TestCase):
         time.sleep(0.5)
         driver.find_element_by_name("email").send_keys("60040@e-fon.ch")
         time.sleep(1.5)
-#       driver.find_element_by_link_text("Save").click()    #don't work      
+        driver.find_element_by_link_text("Save").click()     
 #       driver.find_element_by_xpath("//p[@id, 'one']/following-sibling::p") # More one solution
 #       driver.find_element_by_xpath("//calendar-server-settings//a[@name='editLink']").click()
 #       driver.find_element_by_link_text("Cancel").click()
