@@ -107,7 +107,7 @@ class EPROPortalSuperuser(unittest.TestCase):
         driver.find_element_by_link_text("Call forwarding").click()
         time.sleep(1.5)
         driver.find_element_by_link_text("Last calls").click()
-        time.sleep(1.5)
+        time.sleep(2.5)
         driver.find_element_by_link_text("Subscriptions").click()
         time.sleep(1.5)
         driver.find_element_by_link_text("Bills").click()
@@ -119,8 +119,8 @@ class EPROPortalSuperuser(unittest.TestCase):
 #       driver.find_element_by_link_text("Organisation").click()
 #       time.sleep(1.5)
         driver.find_element_by_link_text("Contact data").click()
+#       driver.find_element_by_xpath("//ul[@id='mainNavbar']/li[12]/a").click() #work
         time.sleep(1.5)
-#       driver.find_element_by_xpath("//ul[@id='mainNavbar']/li[12]/a").click() #works
         driver.find_element_by_link_text("Language").click()
         time.sleep(1.5)
         driver.find_element_by_link_text("Access").click()
@@ -144,8 +144,6 @@ class EPROPortalSuperuser(unittest.TestCase):
 #       driver.find_element_by_css_selector("contact-access-login > section > #loginNameForm > div.form-group > div.col-xs-12.text-right > a.btn.btn-primary.btn-lg").click() #works
 #       driver.find_element_by_xpath("//contact-access/div/div/contact-access-login/section[contains(@class,'form-section')]/form/div[2]/div/a").click() #works
         driver.find_element_by_link_text("Save").click()
-#       driver.find_element_by_css_selector("contact-access-login > section > #loginNameForm > div.form-group > div.col-xs-12.text-right > a.btn.btn-primary.btn-lg").click() #seems working but not saves
-#       driver.find_element_by_xpath("//contact-access/div/div/contact-access-login/section[contains(@class,'form-section')]/form/div[2]/div/a").click() #works
         time.sleep(1.5)
 #       driver.find_element_by_css_selector("contact-access > div > div > contact-access-login > section > #loginNameForm > div.form-group > div.col-xs-12.text-right > a.btn.btn-primary.btn-lg").click() #seems working but not save
 #       driver.quit()
