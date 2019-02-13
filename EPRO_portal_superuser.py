@@ -54,7 +54,7 @@ class EPROPortalSuperuser(unittest.TestCase):
 #       ...............................................
 #       driver.find_element_by_name("continue").click()
         driver.find_element_by_xpath("//login-form/div/div/div[2]/div/form/div[3]/div/button").click() #works
-#       driver.find_element_by_css_selector("login-form > div > div > div.widget.login-window > div > form > div:nth-child(3) > div > button.btn.btn-default.btn-lg").click()   #works
+#       driver.find_element_by_css_selector("login-form > div > div > div.widget.login-window > div > form > div:nth-child(3) > div > button.btn.btn-default.btn-lg").click()  #works
         time.sleep(7.5)
         driver.find_element_by_link_text("User").click()
         time.sleep(2.5)
@@ -152,8 +152,8 @@ class EPROPortalSuperuser(unittest.TestCase):
 #       driver.find_element_by_xpath("//section[2]/form[2]/div[1]/div/input").send_keys("123456")
 #       driver.find_element_by_xpath("//section[2]/form[2]/div[2]/div/input").send_keys("12345Asdf!")
 #       driver.find_element_by_xpath("//section[2]/form[2]/div[3]/div/input").send_keys("12345Asdf!")
-#       driver.find_element_by_link_text("Save").click()     
-#       driver.find_element_by_xpath("//customer-header/div[2]/div[2]/div[1]/div[2]/a").click() #logout for updated loginname - does not work
+#       driver.find_element_by_link_text("Save").click()
+#       driver.find_element_by_xpath("//a[contains(@href, 'logout')]").click() #logout for updated loginname - does not work
 #       driver.get("http://192.168.102.162:9090/portal/")
 #       time.sleep(0.5)        
 #       driver.find_element_by_id("j_username").clear()
@@ -206,7 +206,7 @@ class EPROPortalSuperuser(unittest.TestCase):
  #      sql="UPDATE login SET md5password='7aad9504c5e209be607a70566b04df4009d3f141' WHERE email='60040@e-fon.ch' " #works
         sql="UPDATE login SET md5password=(%s) WHERE login_id=login_id"
         k='7aad9504c5e209be607a70566b04df4009d3f141'
-        cursor = db.cursor() #You must create a Cursor object to execute all the queries which you need  
+        cursor = db.cursor() #You must create a Cursor object to execute queries  
         try:
               cursor.execute(sql, (k,))
               #cursor.execute(sql)
@@ -249,3 +249,4 @@ class EPROPortalSuperuser(unittest.TestCase):
         
 if __name__ == "__main__":
     unittest.main()
+    
