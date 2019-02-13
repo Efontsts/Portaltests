@@ -1,87 +1,147 @@
+# -*- coding: utf-8 -*-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 
-class LoginLogout(unittest.TestCase):
+class DENEWPORTALSuperuser(unittest.TestCase):
     def setUp(self):
-#       self.driver = webdriver.Firefox()
-        self.driver = webdriver.Chrome('C:\Python27\chromedriver.exe')
+        self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
-        self.base_url = "https://192.168.101.240:8443/portal/"
+        self.base_url = "https://192.168.101.240:8443/"
         self.verificationErrors = []
+        self.accept_next_alert = True
     
-    def test_login_logout(self):
+    def test_d_e_n_e_w_p_o_r_t_a_l_superuser(self):
         driver = self.driver
-        driver.get("https://192.168.101.240:8443/portal/login.html")
+        driver.get("https://192.168.101.240:8443/myportal/login.html")
         driver.maximize_window()
-#       driver.find_element_by_link_text("Login").click()
-        driver.find_element_by_name("j_username").clear()
-        driver.find_element_by_name("j_username").send_keys("ihoradmin@e-fon.ch")
-        driver.find_element_by_name("j_password").clear()
-        driver.find_element_by_name("j_password").send_keys("123456")
+        driver.find_element_by_id("inputEmail").clear()
+        driver.find_element_by_id("inputEmail").send_keys("60040@e-fon.ch")
+        driver.find_element_by_name("continue").click()
+        driver.find_element_by_id("inputPassword").clear()
+        driver.find_element_by_id("inputPassword").send_keys("123456")
+        driver.find_element_by_id("inputEmail").clear()
+        driver.find_element_by_id("inputEmail").send_keys("60040@e-fon.ch")
         driver.find_element_by_name("continue").click()
         time.sleep(0.5)
-        driver.find_element_by_link_text("Login").click()
-        driver.find_element_by_name("j_username").clear()
-        driver.find_element_by_name("j_username").send_keys("ihoradmin@e-fon.ch")
-        driver.find_element_by_name("j_password").clear()
-        driver.find_element_by_name("j_password").send_keys("123456")
-        driver.find_element_by_name("continue").click()
-        textsave = open("textsave.txt","w")
-        driver.find_element_by_id("ext-gen43").click()
-        driver.find_element_by_xpath("(//img[@title='Act on behalf of this customer'])[2]").click()    
-        time.sleep(1.5) # Let the page load
-        x = 1           
-        while x <= 3:
-            driver.find_element_by_link_text("User overview").click()
-            #driver.find_element_by_xpath("//input[@value='Create user']").click()
-            driver.find_element_by_css_selector("tr.topAlignedRow > td > table > tbody > tr.topAlignedRow > td > table > tbody > tr > td > input.button").click()
-            driver.find_element_by_name("firstName").clear()
-            driver.find_element_by_name("firstName").send_keys("F"+str(x))
-            driver.find_element_by_name("lastName").clear()
-            driver.find_element_by_name("lastName").send_keys("L"+str(x))
-            time.sleep(0.5)
-            driver.find_element_by_css_selector("body > table > tbody > tr.topAlignedRow > td > table > tbody > tr:nth-child(7) > td:nth-child(3) > form > table > tbody > tr:nth-child(7) > td:nth-child(2) > input").click()
-            time.sleep(0.5)
-            driver.find_element_by_css_selector("body > table > tbody > tr.topAlignedRow > td > table > tbody > tr:nth-child(7) > td:nth-child(3) > form > table > tbody > tr:nth-child(7) > td:nth-child(2) > input").send_keys("FLtest"+str(x)+"@e-fon.ch")
-            #driver.find_element_by_id("diffContactEmailChkbox").send_keys("FLtest"+str(x)+"@e-fon.ch")
-            time.sleep(0.5)
-            driver.find_element_by_id("voicemailEmailChkbox").click()
-            #driver.find_element_by_id("voicemailEmail").clear()
-            #driver.find_element_by_id("voicemailEmail").send_keys("FLtest"+str(x)+"@e-fon.ch")
-            textsave.write("Iteration "+str(x)+"_Ok\n")
-            time.sleep(0.5)
-            driver.save_screenshot("./testscreenshots/UserConfigOverview "+str(x)+".jpg")
-            #driver.find_element_by_xpath("//body/table/tbody/tr[2]/td/table/tbody/tr[7]/td[3]/form/table/tbody/tr[21]/td[2]/input").click() #works
-            driver.find_element_by_xpath("//input[@value='Create']").click()
-            time.sleep(0.5)
-            driver.find_element_by_css_selector("img[title=\"Delete user\"]").click()
-            time.sleep(0.5)
-            driver.find_element_by_id("rBtnDeleteYes").click()
-            #driver.find_element_by_id("btnMemberDelete").click() #works
-            driver.find_element_by_css_selector("input#btnMemberDelete.button").click() #works
-            #driver.find_element_by_css_selector("input.button").click() #works
-            driver.find_element_by_css_selector("tr.topAlignedRow > td > table > tbody > tr.topAlignedRow > td > table > tbody > tr > td > input.button").click() #works
-            time.sleep(0.5)
-            x += 1
-            print x
-            driver.back()
-        driver.implicitly_wait(30)
-        textsave.close()
-        driver.find_element_by_link_text("Logout").click()
-
-
+        driver.find_element_by_css_selector("li.flexMenu-viewMore > a > span.icon").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Contact data").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Language").click()
+        time.sleep(0.5)
+        driver.find_element_by_xpath("//body/div[4]/div[2]/div/section/form/div/div/div/a/div/b").click()
+        time.sleep(0.5)
+#       driver.find_element_by_xpath("//body/div[4]/div[2]/div/section/form/div/div/div/div/ul/li[2]").click() # works
+        driver.find_element_by_xpath("//body/div[4]/div[2]/div/section/form/div/div/div/div/ul/li[text()='Deutsch']").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Benutzer").click()
+        time.sleep(0.5)
+        driver.find_element_by_xpath("//table[@id='membersTable']/tbody/tr/td[4]/a[2]/span").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Zuweisungen").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Umleitungen").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Voicemail").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Fax Nachrichten").click()
+        time.sleep(0.5)
+#       driver.find_element_by_link_text(u"Endgeräte").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Sicherheit").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Ansagen").click()
+        time.sleep(0.5)
+        driver.find_element_by_css_selector("button.close").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Benutzer").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Nummern").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Mobilnummern").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Ringrufe").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Provisionierung").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Telefonmodelle").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Provisionierungsmanager").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Rechnungen").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Abos").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Rufumleitungen").click()
+        time.sleep(0.5)
+#       driver.find_element_by_link_text(u"Endgeräte").click()
+#       driver.find_element_by_link_text(u"Gespräche").click()
+#       driver.find_element_by_id("buttonIncomingCalls").click()
+#       driver.find_element_by_id("buttonOutgoingCalls").click()
+#       driver.find_element_by_id("buttonOutgoingByMonthCalls").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("IVRs").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Kurzwahlen").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Kurzwahlnummern verwalten").click()
+        time.sleep(0.5)
+#       driver.find_element_by_css_selector("li.flexMenu-viewMore > a > span.icon").click()
+#       driver.find_element_by_link_text(u"Rufübernahmen").click()
+        driver.find_element_by_css_selector("li.flexMenu-viewMore > a > span.icon").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Dateiverwaltung").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Music On Hold").click()
+        time.sleep(0.5)
+        driver.find_element_by_css_selector("li.flexMenu-viewMore > a > span.icon").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Manuelle Extensions").click()
+        time.sleep(0.5)
+        driver.find_element_by_css_selector("li.flexMenu-viewMore > a > span.icon").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Warteschlangen").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Status").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Aufnahmen").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Berichte").click()
+        time.sleep(0.5)
+        driver.find_element_by_css_selector("li.flexMenu-viewMore > a > span.icon").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Organisation").click()
+        time.sleep(0.5)
+        #driver.find_element_by_link_text(u"Benutzerübersicht").click()
+        driver.find_element_by_css_selector("li.flexMenu-viewMore > a > span.icon").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Kontakt Daten").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Zugriff").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Kontakt").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text("Sprache").click()
+        time.sleep(0.5)
+        driver.find_element_by_xpath("//body/div[4]/div[2]/div/section/form/div/div/div/a/div/b").click()
+        time.sleep(0.5)
+        driver.find_element_by_xpath("//body/div[4]/div[2]/div/section/form/div/div/div/div/ul/li[text()='English']").click()
+        time.sleep(0.5)
+        driver.find_element_by_link_text(u"⚡Logout").click()
+    
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
-        except NoSuchElementException, e: return False
+        except NoSuchElementException as e: return False
         return True
     
     def is_alert_present(self):
         try: self.driver.switch_to_alert()
-        except NoAlertPresentException, e: return False
+        except NoAlertPresentException as e: return False
         return True
     
     def close_alert_and_get_its_text(self):
