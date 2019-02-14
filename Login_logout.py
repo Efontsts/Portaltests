@@ -49,7 +49,7 @@ class LoginLogout(unittest.TestCase):
             driver.find_element_by_css_selector("body > table > tbody > tr.topAlignedRow > td > table > tbody > tr:nth-child(7) > td:nth-child(3) > form > table > tbody > tr:nth-child(7) > td:nth-child(2) > input").send_keys("FLtest"+str(x)+"@e-fon.ch")
             #driver.find_element_by_id("diffContactEmailChkbox").send_keys("FLtest"+str(x)+"@e-fon.ch")
             time.sleep(0.5)
-            driver.find_element_by_id("voicemailEmailChkbox").click()
+            #driver.find_element_by_id("voicemailEmailChkbox").click()
             #driver.find_element_by_id("voicemailEmail").clear()
             #driver.find_element_by_id("voicemailEmail").send_keys("FLtest"+str(x)+"@e-fon.ch")
             textsave.write("Iteration "+str(x)+"_Ok\n")
