@@ -98,7 +98,7 @@ class DENEWPORTALSuperuser(unittest.TestCase):
         time.sleep(0.5)
         driver.find_element_by_css_selector("li.flexMenu-viewMore > a > span.icon").click()
         time.sleep(0.5)
-        driver.find_element_by_link_text("Kontakt Daten").click()
+        driver.find_element_by_link_text("Kontaktdaten").click()
         time.sleep(0.5)
         driver.find_element_by_link_text("Zugriff").click()
         time.sleep(0.5)
