@@ -53,7 +53,7 @@ class LoginLogout(unittest.TestCase):
             #driver.find_element_by_id("voicemailEmail").clear()
             #driver.find_element_by_id("voicemailEmail").send_keys("FLtest"+str(x)+"@e-fon.ch")
             textsave.write("Iteration "+str(x)+"_Ok\n")
-            time.sleep(0.5)
+            time.sleep(1.5)
             driver.save_screenshot("./testscreenshots/UserConfigOverview "+str(x)+".jpg")
             #driver.find_element_by_xpath("//body/table/tbody/tr[2]/td/table/tbody/tr[7]/td[3]/form/table/tbody/tr[21]/td[2]/input").click() #works
             driver.find_element_by_xpath("//input[@value='Create']").click()
