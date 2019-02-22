@@ -94,25 +94,25 @@ class EPROPortalSuperuser(unittest.TestCase):
         time.sleep(1.5)
         driver.find_element_by_xpath("//body/my-app/ng-component/div/div[2]/div/tabs/ng-component/div/div/div[2]/div/efon-table/section/ng-table/table/tbody/tr/td[5]/a[1]/span").click() #Delete works
         time.sleep(1.5)
-        driver.find_element_by_xpath("//body/my-app/modal-placeholder/ng-component/system-modal-template/div/div/div/div[3]/button[1]").click() #Confirm Tesworks
+        driver.find_element_by_xpath("//body/my-app/modal-placeholder/ng-component/system-modal-template/div/div/div/div[3]/button[1]").click() #Confirm works
 #       driver.find_element_by_xpath("//confirmation-modal//button[text()='Yes']").click() # Alternative way simply get the button (or other objects) using the text property
-        time.sleep(2.5)
+        time.sleep(3.5)
         driver.find_element_by_link_text("Provisioning").click()
         time.sleep(2.5)
-#       driver.find_element_by_link_text("Hunt Groups").click()
-#       time.sleep(2.5)
+        driver.find_element_by_link_text("Hunt Groups").click()
+        time.sleep(2.5)
 #       driver.find_element_by_link_text("End devices").click()
 #       time.sleep(2.5)
         driver.find_element_by_link_text("Call forwarding").click()
         time.sleep(2.5)
-#       driver.find_element_by_link_text("Last calls").click()
-#       time.sleep(3.5)
+        driver.find_element_by_link_text("Last calls").click()
+        time.sleep(3.5)
 #       driver.find_element_by_link_text("Subscriptions").click()
 #       time.sleep(1.5)
         driver.find_element_by_link_text("Bills").click()
-        time.sleep(1.5)
+        time.sleep(2.5)
         driver.find_element_by_link_text("IVRs").click()
-        time.sleep(1.5)
+        time.sleep(2.5)
         driver.find_element_by_link_text("Call pick-ups").click()
         time.sleep(1.5)
 #       driver.find_element_by_link_text("Organisation").click()
@@ -144,15 +144,7 @@ class EPROPortalSuperuser(unittest.TestCase):
 #       driver.find_element_by_xpath("//contact-access/div/div/contact-access-login/section[contains(@class,'form-section')]/form/div[2]/div/a").click() #works
         driver.find_element_by_link_text("Save").click()
         time.sleep(1.5)
-#       driver.find_element_by_css_selector("contact-access > div > div > contact-access-login > section > #loginNameForm > div.form-group > div.col-xs-12.text-right > a.btn.btn-primary.btn-lg").click() #seems working but not save
 #       driver.quit()
-#       driver.find_element_by_xpath("//section[2]/form/div/div[2]/a/span").click()
-#       driver.find_element_by_link_text("Cancel").click()
-#       driver.find_element_by_xpath("//section[2]/form/div/div[2]/a/span").click()
-#       driver.find_element_by_xpath("//section[2]/form[2]/div[1]/div/input").send_keys("123456")
-#       driver.find_element_by_xpath("//section[2]/form[2]/div[2]/div/input").send_keys("12345Asdf!")
-#       driver.find_element_by_xpath("//section[2]/form[2]/div[3]/div/input").send_keys("12345Asdf!")
-#       driver.find_element_by_link_text("Save").click()
 #       driver.find_element_by_xpath("//a[contains(@href, 'logout')]").click() #logout for updated loginname - does not work
 #       driver.get("http://192.168.102.162:9090/portal/")
 #       time.sleep(0.5)        
@@ -174,37 +166,52 @@ class EPROPortalSuperuser(unittest.TestCase):
         time.sleep(1.5)
         driver.find_element_by_link_text("Save").click()
         time.sleep(2.5)
-#       driver.find_element_by_xpath("//p[@id, 'one']/following-sibling::p") # More one solution
-#       driver.find_element_by_xpath("//calendar-server-settings//a[@name='editLink']").click()
-#       driver.find_element_by_link_text("Cancel").click()
-#       driver.find_element_by_xpath("//calendar-server-settings//a[@name='editLink']").click()
-#       driver.find_element_by_xpath("//calendar-server-settings/section/form/div[2]/div/input").clear()
-#       driver.find_element_by_xpath("//calendar-server-settings/section/form/div[2]/div/input").send_keys("Test_name")      
+        driver.find_element_by_xpath("//contact-access/div/div/password/section/form/div/div[2]/a/span").click() #works, password section
+        time.sleep(2.5)
+        driver.find_element_by_link_text("Cancel").click()
+        time.sleep(1.5)
+#       driver.find_element_by_xpath("//contact-access/div/div/password/section/form/div/div[2]/a/span").click() #works, password section
+#       time.sleep(2.5)
+#       driver.find_element_by_xpath("//*[@id='passwordForm']/div[1]/div/input").send_keys("123456")
+#       time.sleep(1.5)       
+#       driver.find_element_by_xpath("//*[@id='passwordForm']/div[2]/div/input").send_keys("12345Asdf!")
+#       time.sleep(1.5)
+#       driver.find_element_by_xpath("//*[@id='passwordForm']/div[3]/div/input").send_keys("12345Asdf!")
+#       time.sleep(1.5)
 #       driver.find_element_by_link_text("Save").click()
+#       time.sleep(1.5)
+#       driver.find_element_by_xpath("//p[@id, 'one']/following-sibling::p") # More one solution
+#       driver.find_element_by_xpath("//contact-access/div/div/ip-restriction/section/div/div/div[2]/a/span").click()
+#       time.sleep(2.5)
+#       driver.find_element_by_link_text("Cancel").click()  
 #       driver.find_element_by_xpath("//ip-restriction//a[@name='editLink']").click()
-#       time.sleep(0.5)
+#       time.sleep(1.5)
 #       driver.find_element_by_link_text("+ Add new IP address").click()
-#       time.sleep(0.5)
+#       time.sleep(1.5)
 #       driver.find_element_by_name("newIp").clear()
 #       time.sleep(0.5)
 #       driver.find_element_by_name("newIp").send_keys("127.0.0.1")
 #       time.sleep(0.5)
 #       driver.find_element_by_link_text("Cancel").click()        
 #       driver.find_element_by_link_text("Save").click()
-        time.sleep(0.5)
         db = MySQLdb.connect(host="192.168.102.162",
                                  user="root",
                                  passwd="root",
                                  db="webadmin_20180130")
         
- #      db = MySQLdb.connect(host="192.168.101.240",
- #                          user="root",
- #                          passwd="root",
- #                          db="webadmin_20160105")
+#      db = MySQLdb.connect(host="127.0.0.1",
+#                          user="root",
+#                          passwd="root",
+#                          db="webadmin_DB_test")
 
- #      cursor = db.cursor()
- #      sql="UPDATE login SET md5password='7aad9504c5e209be607a70566b04df4009d3f141' WHERE email='60040@e-fon.ch' " #works
-        sql="UPDATE login SET md5password=(%s) WHERE login_id=login_id"
+#      db = MySQLdb.connect(host="192.168.101.240",
+#                          user="root",
+#                          passwd="root",
+#                          db="webadmin_20160105")
+
+#      cursor = db.cursor()
+#      sql="UPDATE login SET md5password='7aad9504c5e209be607a70566b04df4009d3f141' WHERE email='60040@e-fon.ch' " #works
+        sql="UPDATE login SET md5password=(%s) WHERE email='60040@e-fon.ch'"
         k='7aad9504c5e209be607a70566b04df4009d3f141'
         cursor = db.cursor() #You must create a Cursor object to execute queries  
         try:
@@ -217,8 +224,7 @@ class EPROPortalSuperuser(unittest.TestCase):
         driver.save_screenshot('./testscreenshots/contact-data_after_update.jpg') #after data change
         time.sleep(1.5)
 #       driver.find_element_by_xpath("//a[contains(@href, 'logout')]").click() #don't work
-#       driver.find_element_by_css_selector("body.dashboard > div.container-non-responsive-header > div.row.header.display_table > customer-header > div.col-md-6.table_cell-align.alignRight_important > div.col-md-8 > div.row.text-center > div.col-md-4.text-center > a.btn.btn-default.btn-lg.header-logout_button.text-center").click() #don't work
-#       driver.find_element_by_xpath("//body/div/div/customer-header/div[2]/div[2]/div[1]/div[2]/a").click() #don't work
+#       driver.find_element_by_xpath("//customer-header/div[2]/div[2]/div[1]/div[2]/a").click() #don't work
 #       driver.find_element_by_link_text(u"⚡Logout").click() #don't work
         driver.quit()
 
