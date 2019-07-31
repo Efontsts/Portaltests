@@ -18,20 +18,22 @@ class EPROPortalSuperuser(unittest.TestCase):
 #       ie_driver_path = dir + "\IEDriverServer.exe"
 #       ie_driver_path = "C:\Python27\IEDriverServer.exe"
 #       self.driver = webdriver.Ie('C:\Python27\IEDriverServer.exe') #create a new Internet Explorer session
-        self.driver.implicitly_wait(30)
-        self.base_url = "http://192.168.102.162:9090/portal/login#/"
+        self.driver.implicitly_wait(50)
+        self.base_url = "https://epro.test/portal/login"
+        self.driver.implicitly_wait(50)
+#       self.base_url = "http://192.168.102.162:9090/portal/login#/"
         self.verificationErrors = []
         self.accept_next_alert = True
         
-    db = MySQLdb.connect(host="192.168.102.162",
-                     user="root",
-                     passwd="root",
-                     db="webadmin_20180130")
+#   db = MySQLdb.connect(host="192.168.102.162",
+#                    user="root",
+#                    passwd="root",
+#                    db="webadmin_20180130")
     
-#   db = MySQLdb.connect(host="192.168.101.240",
-#                       user="root",
-#                       passwd="root",
-#                       db="webadmin_20160105")
+    db = MySQLdb.connect(host="192.168.101.240",
+                        user="root",
+                        passwd="root",
+                        db="webadmin_20170426")
 
     cur = db.cursor() #You must create a Cursor object to execute all the queries which you need
     cur.execute("SELECT * FROM login WHERE email='60040@e-fon.ch';")
@@ -43,9 +45,10 @@ class EPROPortalSuperuser(unittest.TestCase):
     def test_e_p_r_o_portal_superuser(self):
         driver = self.driver
         driver.maximize_window()
-        time.sleep(0.5)
+        time.sleep(1.5)
         driver.get("http://192.168.102.162:9090/portal/")
-        time.sleep(0.5)
+#       driver.get("https://epro.test/portal/")        
+        time.sleep(1.5)
         driver.find_element_by_id("j_username").clear()
         driver.find_element_by_id("j_username").send_keys("60040@e-fon.ch")
         driver.find_element_by_id("j_password").clear()
@@ -60,10 +63,10 @@ class EPROPortalSuperuser(unittest.TestCase):
         time.sleep(2.5)
         driver.find_element_by_link_text("Numbers").click()
         time.sleep(2.5)
-        driver.find_element_by_link_text("Mobile Numbers").click()        
-        time.sleep(2.5)
-        driver.find_element_by_link_text("Mobile Routings").click()        
-        time.sleep(2.5)        
+#       driver.find_element_by_link_text("Mobile Numbers").click()        
+#       time.sleep(2.5)
+#       driver.find_element_by_link_text("Mobile Routings").click()        
+#       time.sleep(2.5)        
         driver.find_element_by_link_text("Abbreviated dialling").click()     
         time.sleep(2.5)
         driver.find_element_by_link_text("Manage abbreviated numbers").click()
@@ -194,6 +197,7 @@ class EPROPortalSuperuser(unittest.TestCase):
 #       time.sleep(0.5)
 #       driver.find_element_by_link_text("Cancel").click()        
 #       driver.find_element_by_link_text("Save").click()
+
         db = MySQLdb.connect(host="192.168.102.162",
                                  user="root",
                                  passwd="root",
@@ -207,22 +211,22 @@ class EPROPortalSuperuser(unittest.TestCase):
 #      db = MySQLdb.connect(host="192.168.101.240",
 #                          user="root",
 #                          passwd="root",
-#                          db="webadmin_20160105")
+#                          db="webadmin_20170426")
 
-#      cursor = db.cursor()
-#      sql="UPDATE login SET md5password='7aad9504c5e209be607a70566b04df4009d3f141' WHERE email='60040@e-fon.ch' " #works
+        cursor = db.cursor()
+#       sql="UPDATE login SET md5password='7aad9504c5e209be607a70566b04df4009d3f141' WHERE email='60040@e-fon.ch' " #works
         sql="UPDATE login SET md5password=(%s) WHERE email='60040@e-fon.ch'"
         k='7aad9504c5e209be607a70566b04df4009d3f141'
         cursor = db.cursor() #You must create a Cursor object to execute queries  
         try:
-              cursor.execute(sql, (k,))
-              #cursor.execute(sql)
-              db.commit()
+             cursor.execute(sql, (k,))
+             #cursor.execute(sql)
+             db.commit()
         except:
-              db.rollback()
+             db.rollback()
         db.close()
-        driver.save_screenshot('./testscreenshots/contact-data_after_update.jpg') #after data change
-        time.sleep(1.5)
+#       driver.save_screenshot('./testscreenshots/contact-data_after_update.jpg') #after data change
+#       time.sleep(1.5)
 #       driver.find_element_by_xpath("//a[contains(@href, 'logout')]").click() #don't work
 #       driver.find_element_by_xpath("//customer-header/div[2]/div[2]/div[1]/div[2]/a").click() #don't work
 #       driver.find_element_by_link_text(u"⚡Logout").click() #don't work
@@ -255,4 +259,3 @@ class EPROPortalSuperuser(unittest.TestCase):
         
 if __name__ == "__main__":
     unittest.main()
-    
