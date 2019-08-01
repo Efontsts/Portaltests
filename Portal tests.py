@@ -19,7 +19,7 @@ def optionselect():
 
 	    if i == 1:
 
-		print "1 Create userin old portal"
+		print "1 Create user in old portal"
 		unittest.main (module = Login_logout)
 
 	    elif i == 2:
