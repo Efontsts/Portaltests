@@ -217,7 +217,6 @@ class EPROPortalSuperuser(unittest.TestCase):
         driver.save_screenshot('./testscreenshots/contact-data_after_update.jpg') #after data change
         time.sleep(1.5)
 #       driver.find_element_by_xpath("//a[contains(@href, 'logout')]").click() #don't work
-#       driver.find_element_by_link_text(u"⚡Logout").click() #don't work
         driver.quit()
 
     def is_element_present(self, how, what):
